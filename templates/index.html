@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col">
+  <div class="card border-dark text-center mb-4">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Current</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Future</a>
+        </li>
+      </ul>
+    </div>
+    {% for p in weatherDict %}
+    <div class="card-body">
+      <p> {{weatherDict[p]['currentWeather']['city']}} <img src={{weatherDict[p]['currentWeather']['picture']}} width="56" height = "56"></img></p>
+      <div class="row">
+        <div class="col-xl-2">
+          <div class="card border-light mb-4">
+            <div class="card-header border-dark">Current Temperature</div>
+            <div class="card-body text-primary">{{weatherDict[p]['currentWeather']['temp']}} &#8457</div>
+          </div>
+        </div>
+
+        <div class="col-xl-2">
+          <div class="card border-light mb-4">
+            <div class="card-header border-dark">Feels Like</div>
+            <div class="card-body text-primary">{{weatherDict[p]['currentWeather']['feelLikeTemp']}} &#8457</div>
+          </div>
+        </div>
+
+        <div class="col-xl-2">
+          <div class="card border-light mb-4">
+            <div class="card-header border-dark">Wind Speed</div>
+            <div class="card-body text-primary">{{weatherDict[p]['currentWeather']['windSpeed']}} mph</div>
+          </div>
+        </div>
+
+        <div class="col-xl-2">
+          <div class="card border-light mb-4">
+            <div class="card-header border-dark">Humidity</div>
+            <div class="card-body text-primary">{{weatherDict[p]['currentWeather']['humidity']}}%</div>
+          </div>
+        </div>
+
+        <div class="col-xl-2">
+          <div class="card border-light mb-4">
+            <div class="card-header border-dark">Min Temp</div>
+            <div class="card-body text-primary">{{weatherDict[p]['weatherForDay']['minTemp']}} &#8457</div>
+          </div>
+        </div>
+
+        <div class="col-xl-2">
+          <div class="card border-light mb-4">
+            <div class="card-header border-dark">Max Temp</div>
+            <div class="card-body text-primary">{{weatherDict[p]['weatherForDay']['maxTemp']}} &#8457</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Weather Over Time Plots
+        <div class="dropdown show float-end">
+          <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Time Range
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/plot_range/1">Next 24h</a>
+            <a class="dropdown-item" href="/plot_range/2">Next 48h</a>
+            <a class="dropdown-item" href="/plot_range/3">Next 7 days</a>
+            <a class="dropdown-item" href="/plot_range/4">Next 14 days</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- <canvas id="myAreaChart" width="100%" height="10"></canvas> -->
+        <!-- <div class="container"> -->
+
+          <div class="row">
+            <div class="col-md-6">
+              {{ figs.fig_temp | safe}}
+            </div>
+            <div class="col-md-6">
+              {{ figs.fig_feelLikeTemp | safe}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              {{ figs.fig_humidity | safe}}
+            </div>
+            <div class="col-md-6">
+              {{ figs.fig_windSpeed | safe}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              {{ figs.fig_aqi | safe}}
+            </div>
+            <div class="col-md-6">
+              {{ figs.fig_precip | safe}}
+            </div>
+          </div>
+
+        <!-- </div> -->
+      
+      </div>
+      <!-- <img src="WeatherCharts.png" alt="Graphs of temperature over time" width="100%" height="50%"> -->
+
+    </div>
+  </div>
+</div>
+
+
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i>
+    DataTable
+  </div>
+  <div class="card-body">
+    <table id="datatablesSimple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>Tiger Nixon</td>
+          <td>System Architect</td>
+          <td>Edinburgh</td>
+          <td>61</td>
+          <td>2011/04/25</td>
+          <td>$320,800</td>
+        </tr>
+        <tr>
+          <td>Garrett Winters</td>
+          <td>Accountant</td>
+          <td>Tokyo</td>
+          <td>63</td>
+          <td>2011/07/25</td>
+          <td>$170,750</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
