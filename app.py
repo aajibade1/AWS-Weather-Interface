@@ -3,7 +3,6 @@ import sys, os
 from env import AWS_ACCESS_KEY, AWS_SECRET_ACCESS_KEY, AWS_REGION, API_KEY, PHOTOGALLERY_S3_BUCKET_NAME, DYNAMODB_TABLE, DYNAMODB_USER_TABLE, KEY, SALT, EMAIL
 from flask import Flask, jsonify, abort, request, make_response, send_file, url_for, flash, session, Response, render_template, redirect
 import exifread
-import json
 import uuid
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
@@ -15,10 +14,7 @@ from itsdangerous import URLSafeTimedSerializer
 import csv
 import mimetypes
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 import plotly
-import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
