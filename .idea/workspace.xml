@@ -4,6 +4,7 @@
     <list default="true" id="de12f1f4-00d7-4e01-9f12-90b0df2ac7bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lambdaEmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/lambdaEmail.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669423977854</updated>
       <workItem from="1669423985239" duration="2512000" />
-      <workItem from="1709541097142" duration="1403000" />
+      <workItem from="1709541097142" duration="1891000" />
     </task>
     <servers />
   </component>

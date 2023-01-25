@@ -1,7 +1,6 @@
 import json
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
-import time
 import requests
 
 AWS_ACCESS_KEY=""
